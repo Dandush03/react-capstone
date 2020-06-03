@@ -8,7 +8,7 @@ export default (state = '', action) => {
       newState = {
         ...state,
         [action.payload.position]: {
-          code: action.payload.company,
+          company: action.payload.company,
         },
       };
       return newState;

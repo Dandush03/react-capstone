@@ -3,76 +3,51 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 
+// eslint-disable-next-line
 import CanvasJSReact from '../assets/canvasjs.react';
 
-const { CanvasJS } = CanvasJSReact;
 const { CanvasJSChart } = CanvasJSReact;
-const dataPoints1 = [];
-const dataPoints2 = [];
-// initial values
-const yValue1 = 408;
-const yValue2 = 350;
-const xValue = 5;
-
 class Chart extends Component {
-  constructor(props) {
-    super(props);
-    this.updateChart = this.updateChart.bind(this);
-    this.toggleDataSeries = this.toggleDataSeries.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateChart(4);
-    console.log(this);
-  }
-
-  toggleDataSeries(e) {
-    if (typeof (e.dataSeries.visible) === 'undefined' || e.dataSeries.visible) {
-      e.dataSeries.visible = false;
-    } else {
-      e.dataSeries.visible = true;
-    }
-    this.chart.render();
-  }
-
-  updateChart(count) {
-    count = count || 1;
+  render() {
     const {
       props: {
-        firstCompanyData, secondCompanyData, firstCompanyInfo, secondCompanyInfo,
+        firstCompanyData, firstCompanyInfo, secondCompanyData, secondCompanyInfo,
       },
     } = this;
-    console.log(firstCompanyInfo, secondCompanyInfo);
 
-    let deltaY1;
-    let deltaY2;
-    for (let i = 0; i < firstCompanyData.length; i += 1) {
-      dataPoints1.push({
-        x: firstCompanyData[i].date,
-        y: firstCompanyData[i].close,
-      });
-      dataPoints2.push({
-        x: secondCompanyData[i].date,
-        y: secondCompanyData[i].close,
-      });
-    }
-    this.chart.options.data[0].legendText = ` ${firstCompanyInfo.name || ''} - ${0} km/h`;
-    this.chart.options.data[1].legendText = ` ${secondCompanyInfo.name || ''} - ${0} km/h`;
-    this.chart.render();
-  }
+    const dataPoints1 = firstCompanyData.slice(0, 20).map(company => {
+      const companyData = {
+        x: new Date(company.date),
+        y: [company.open, company.low, company.high, company.close],
+      };
+      return companyData;
+    });
 
-  render() {
+    const dataPoints2 = secondCompanyData.slice(0, 20).map(company => {
+      const companyData = {
+        x: new Date(company.date),
+        y: [company.open, company.low, company.high, company.close],
+      };
+      return companyData;
+    });
+
+
     const options = {
       zoomEnabled: true,
       theme: 'light2',
       title: {
         text: 'Comparation between two Assets',
       },
+      axisX: {
+        interval: 1,
+        valueFormatString: 'D MMM YYYY HH:mm:ss',
+      },
       axisY: {
         includeZero: false,
+        title: 'Price',
       },
       toolTip: {
-        shared: true,
+        content: 'Date: {x}<br /><strong>Price:</strong><br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}',
       },
       legend: {
         cursor: 'pointer',
@@ -83,38 +58,32 @@ class Chart extends Component {
       },
       data: [
         {
-          type: 'stepLine',
-          xValueFormatString: 'MMM YYYY',
-          yValueFormatString: '#,##0 km/h',
+          type: 'candlestick',
+          yValueFormatString: '#,##.######',
           showInLegend: true,
-          name: 'Bugatti Veyron',
+          name: firstCompanyInfo.name || '',
           dataPoints: dataPoints1,
         },
         {
-          type: 'stepLine',
-          xValueFormatString: '#,##0 seconds',
-          yValueFormatString: '#,##0 km/h',
+          type: 'candlestick',
+          yValueFormatString: '#,##.######',
           showInLegend: true,
-          name: 'Lamborghini Aventador',
+          name: secondCompanyInfo.name || '',
           dataPoints: dataPoints2,
         },
       ],
     };
     return (
       <div>
-        <CanvasJSChart
-          options={options}
-          onRef={ref => this.chart = ref}
-        />
-        {/* You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods */}
+        <CanvasJSChart options={options} onRef={ref => { this.chart = ref; }} />
       </div>
     );
   }
 }
 
 Chart.propTypes = {
-  firstCompanyInfo: PropTypes.objectOf(PropTypes.object),
-  secondCompanyInfo: PropTypes.objectOf(PropTypes.object),
+  firstCompanyInfo: PropTypes.objectOf(PropTypes.string),
+  secondCompanyInfo: PropTypes.objectOf(PropTypes.string),
   firstCompanyData: PropTypes.arrayOf(PropTypes.object),
   secondCompanyData: PropTypes.arrayOf(PropTypes.object),
 };
@@ -127,8 +96,8 @@ Chart.defaultProps = {
 };
 
 const structeredSelector = createStructuredSelector({
-  firstCompanyInfo: state => state.selector.first,
-  secondCompanyInfo: state => state.selector.second,
+  firstCompanyInfo: state => state.selector.first.company,
+  secondCompanyInfo: state => state.selector.second.company,
   firstCompanyData: state => state.loadData.firstCompany,
   secondCompanyData: state => state.loadData.secondCompany,
 });

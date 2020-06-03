@@ -12,8 +12,8 @@ class Companies extends Component {
   }
 
   handleLoadChart() {
-    const { props: { loadCompanyChart } } = this;
-    loadCompanyChart('app', 'tas');
+    const { props: { loadCompanyChart, selectedCompanies: { first, second } } } = this;
+    loadCompanyChart(first.company.symbol, second.company.symbol);
   }
 
   handleChange(e) {
@@ -42,10 +42,12 @@ Companies.propTypes = {
   loadCompanyChart: PropTypes.func.isRequired,
   selector: PropTypes.func.isRequired,
   companies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectedCompanies: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 const structeredSelector = createStructuredSelector({
   companies: state => state.companies,
+  selectedCompanies: state => state.selector,
 });
 
 const mapDispatchToProps = { getCompaniesArray, loadCompanyChart, selector };

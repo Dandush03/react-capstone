@@ -10,10 +10,10 @@ const initState = {
   selector:
     {
       first: {
-        code: {},
+        company: {},
       },
       second: {
-        code: {},
+        company: {},
       },
     },
   loadData: {

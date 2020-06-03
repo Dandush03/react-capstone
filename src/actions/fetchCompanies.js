@@ -20,30 +20,29 @@ function loadCompanySeccess(firstCompany, secondCompany) {
 }
 
 function getCompaniesArray() {
-  const fetchUrl = 'https://financialmodelingprep.com/api/v3/search?query=AA&limit=9999&exchange=NASDAQ&apikey=5a09cb0e52a6ec55120e0e6cccb75535';
+  const fetchUrl = 'https://financialmodelingprep.com/api/v3/search?query=AA&limit=9999&exchange=NASDAQ&apikey=a7eb293cdc6c84c17a7daa9689f11682';
   return dispatch => {
     dispatch({ type: ActionTypes.GET_COMPANIES_REQUEST });
     return fetch(fetchUrl)
       .then(response => response.json())
-      .then(json => dispatch(getCompaniesSuccess(json)))
-      // eslint-disable-next-line no-console
-      .catch(error => console.log(error));
+      .then(json => dispatch(getCompaniesSuccess(json)));
+    // eslint-disable-next-line no-console
   };
 }
 
 function loadCompanyChart(firstCompany, secondCompany) {
   let first;
   let second;
-  const fetchUrl = e => `https://financialmodelingprep.com/api/v3/historical-chart/4hour/${e}?apikey=5a09cb0e52a6ec55120e0e6cccb75535`;
+  const fetchUrl = e => `https://financialmodelingprep.com/api/v3/historical-chart/15min/${e}?apikey=a7eb293cdc6c84c17a7daa9689f11682`;
   return dispatch => {
     dispatch({ type: ActionTypes.LOAD_COMPANY_REQUEST });
-    return fetch(fetchUrl('AAPL'))
+    return fetch(fetchUrl(firstCompany))
       .then(response => response.json())
       .then(json => {
         first = json;
       })
       .then(e => {
-        fetch(fetchUrl('PRAA'))
+        fetch(fetchUrl(secondCompany))
           .then(response => response.json())
           .then(json => {
             second = json;
