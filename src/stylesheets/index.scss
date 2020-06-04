@@ -315,9 +315,11 @@ header {
   display: flex;
   height: 100%;
   justify-content: center;
+  left: 0;
   margin: 0 10%;
   overflow: hidden;
   position: fixed;
+  top: 0;
   width: 80%;
   z-index: 99;
 
@@ -390,5 +392,6 @@ header {
 
   h1 {
     font-size: xx-large;
+    padding: 20px;
   }
 }
