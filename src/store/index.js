@@ -17,8 +17,8 @@ const initState = {
       },
     },
   loadData: {
-    firstCompany: [{}],
-    secondCompany: [{}],
+    firstCompany: { symbol: '', historical: [] },
+    secondCompany: { symbol: '', historical: [] },
   },
   popUp: {
     show: false,

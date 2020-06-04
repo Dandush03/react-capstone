@@ -16,7 +16,7 @@ class Companies extends Component {
     loadCompanyChart(first.company.symbol, second.company.symbol);
   }
 
-  handleChange(e) {
+  async handleChange(e) {
     const { props: { selector, companies } } = this;
     const company = companies.find(element => element.symbol === e.target.value);
     selector(company, e.target.name);
@@ -24,9 +24,13 @@ class Companies extends Component {
 
   render() {
     const { props } = this;
-    const { companies } = props;
+    const { companies, selectedCompanies: { first, second } } = props;
 
     const companiesList = companies.map(company => <option key={`company-${company.symbol}`} value={company.symbol}>{company.name}</option>);
+
+    if (Object.keys(first.company).length !== 0 && Object.keys(second.company).length !== 0) {
+      this.handleLoadChart();
+    }
     return (
       <div className="companies-selection">
         <div className="selection">

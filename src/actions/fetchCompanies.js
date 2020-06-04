@@ -33,7 +33,7 @@ function getCompaniesArray() {
 function loadCompanyChart(firstCompany, secondCompany) {
   let first;
   let second;
-  const fetchUrl = e => `https://financialmodelingprep.com/api/v3/historical-chart/15min/${e}?apikey=f5bcf5842d9b108416052312a7546fac`;
+  const fetchUrl = e => `https://financialmodelingprep.com/api/v3/historical-price-full/${e}?apikey=f5bcf5842d9b108416052312a7546fac`;
   return dispatch => {
     dispatch({ type: ActionTypes.LOAD_COMPANY_REQUEST });
     return fetch(fetchUrl(firstCompany))

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import PropTypes from 'prop-types';
+import PropTypes, { oneOfType } from 'prop-types';
 
 // eslint-disable-next-line
 import CanvasJSReact from '../assets/canvasjs.react';
@@ -15,7 +15,7 @@ class Chart extends Component {
       },
     } = this;
 
-    const dataPoints1 = firstCompanyData.slice(0, 40).map(company => {
+    const dataPoints1 = firstCompanyData.historical.slice(0, 70).map(company => {
       const companyData = {
         x: new Date(company.date),
         y: [company.open, company.low, company.high, company.close],
@@ -23,7 +23,7 @@ class Chart extends Component {
       return companyData;
     });
 
-    const dataPoints2 = secondCompanyData.slice(0, 40).map(company => {
+    const dataPoints2 = secondCompanyData.historical.slice(0, 70).map(company => {
       const companyData = {
         x: new Date(company.date),
         y: [company.open, company.low, company.high, company.close],
@@ -39,8 +39,8 @@ class Chart extends Component {
       },
       backgroundColor: 'transparent',
       axisX: {
-        interval: 5,
-        valueFormatString: 'D MMM YYYY HH:mm:ss',
+        interval: 1,
+        valueFormatString: 'D MMM YYYY',
       },
       axisY: {
         includeZero: false,
@@ -84,8 +84,8 @@ class Chart extends Component {
 Chart.propTypes = {
   firstCompanyInfo: PropTypes.objectOf(PropTypes.string),
   secondCompanyInfo: PropTypes.objectOf(PropTypes.string),
-  firstCompanyData: PropTypes.arrayOf(PropTypes.object),
-  secondCompanyData: PropTypes.arrayOf(PropTypes.object),
+  firstCompanyData: PropTypes.objectOf(oneOfType([PropTypes.string, PropTypes.array])),
+  secondCompanyData: PropTypes.objectOf(oneOfType([PropTypes.string, PropTypes.array])),
 };
 
 Chart.defaultProps = {
