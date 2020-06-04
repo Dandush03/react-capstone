@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './Header';
+import ListOfCompany from '../components/ListOfCompany';
 
 export default class Compare extends Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ export default class Compare extends Component {
     return (
       <div className="wrapper">
         <Header />
+        <ListOfCompany />
       </div>
     );
   }

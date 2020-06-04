@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Chart from '../components/Chart';
-import Companies from '../components/Companies';
+import Companies from '../components/Selector';
 import Title from '../components/Title';
 import Header from './Header';
 

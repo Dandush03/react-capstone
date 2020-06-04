@@ -20,6 +20,10 @@ const initState = {
     firstCompany: [{}],
     secondCompany: [{}],
   },
+  popUp: {
+    show: false,
+    data: {},
+  },
 };
 
 export default function configureStore() {

@@ -20,7 +20,7 @@ function loadCompanySeccess(firstCompany, secondCompany) {
 }
 
 function getCompaniesArray() {
-  const fetchUrl = 'https://financialmodelingprep.com/api/v3/search?query=AA&limit=9999&exchange=NASDAQ&apikey=a7eb293cdc6c84c17a7daa9689f11682';
+  const fetchUrl = 'https://financialmodelingprep.com/api/v3/search?query=AA&limit=9999&exchange=NASDAQ&apikey=f5bcf5842d9b108416052312a7546fac';
   return dispatch => {
     dispatch({ type: ActionTypes.GET_COMPANIES_REQUEST });
     return fetch(fetchUrl)
@@ -33,7 +33,7 @@ function getCompaniesArray() {
 function loadCompanyChart(firstCompany, secondCompany) {
   let first;
   let second;
-  const fetchUrl = e => `https://financialmodelingprep.com/api/v3/historical-chart/15min/${e}?apikey=a7eb293cdc6c84c17a7daa9689f11682`;
+  const fetchUrl = e => `https://financialmodelingprep.com/api/v3/historical-chart/15min/${e}?apikey=f5bcf5842d9b108416052312a7546fac`;
   return dispatch => {
     dispatch({ type: ActionTypes.LOAD_COMPANY_REQUEST });
     return fetch(fetchUrl(firstCompany))

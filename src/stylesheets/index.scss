@@ -12,6 +12,17 @@ $select-bg-first: #dabe8c;
 $select-bg-last: #caaf81;
 $select-bg-button: #c4a365;
 $select-border: 1px solid #5f4618;
+$company-n-2: #e7c88f;
+$company-n-3: #e4c690;
+$company-n-4: #d1bb92;
+$company-n-5: #e4cda1;
+$company-n-6: #d3b987;
+$popup-bg-color: #fff0d5;
+$popup-close-btn-border: 1px solid #5f4618;
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   background: $app-bg;
@@ -35,6 +46,7 @@ header {
   top: 0;
   transition: max-height .4s ease-in-out;
   width: 100%;
+  z-index: 999;
 
   >div {
     background-color: $header-bg;
@@ -230,5 +242,153 @@ header {
 
   >div {
     height: 100%;
+  }
+}
+
+.companies {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 7.5vh;
+  max-width: 700px;
+  overflow-x: hidden;
+
+
+  h1 {
+    font-size: larger;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  >button {
+    background-color: $app-bg-c-1;
+    color: $font-color;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 15px;
+    width: 50%;
+    z-index: 1;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: scale 2s;
+      z-index: 0;
+    }
+
+    &:nth-child(2n) {
+      background-color: $company-n-2;
+    }
+
+    &:nth-child(3n) {
+      background-color: $company-n-3;
+    }
+
+    &:nth-child(4n) {
+      background-color: $company-n-4;
+    }
+
+    &:nth-child(5n) {
+      background-color: $company-n-5;
+    }
+
+    &:nth-child(13n) {
+      background-color: $company-n-6;
+    }
+
+    &:nth-child(17n) {
+      background-color: $company-n-6;
+    }
+  }
+
+  span {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.company-popup {
+  color: $font-color;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin: 0 10%;
+  overflow: hidden;
+  position: fixed;
+  width: 80%;
+  z-index: 99;
+
+  >div {
+    align-self: center;
+    background-color: $popup-bg-color;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    >button {
+      align-self: center;
+      background-color: $company-n-3;
+      border: $popup-close-btn-border;
+      border-radius: 5px;
+      color: $font-color;
+      font-size: large;
+      font-weight: bolder;
+      margin: 10px;
+      padding: 15px;
+      width: 200px;
+    }
+  }
+
+  .header-popup {
+    background-color: $select-bg-button;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+
+    button {
+      background-color: $popup-bg-color;
+      border: 0;
+      color: $font-color;
+      font-size: large;
+      font-weight: bolder;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+
+    >div {
+      border: $select-border;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      height: 75px;
+      justify-content: center;
+      margin: 10px;
+      width: calc(50% - 20px);
+    }
+
+    p {
+      margin: 0;
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    h4 {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  h1 {
+    font-size: xx-large;
   }
 }
