@@ -39,7 +39,9 @@
 
 This project is mean to let you compare between two stocks which let you compare and help you on your decision for wich one to inveset, rigth now it uses a small group of companies (Mostly from Nasdaq) in feture release will upgrade our companies list
 
-![Untitled](https://user-images.githubusercontent.com/51087936/83792038-86681880-a668-11ea-9372-067799b067b7.png)
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/51087936/83792038-86681880-a668-11ea-9372-067799b067b7.png">
+</p>
 
 ### Built With
 The project was developed using the following technologies:
