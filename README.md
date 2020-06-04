@@ -109,3 +109,19 @@ Feel free to check the [issues page](https://github.com/Dandush03/react-capstone
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/Dandush03/React-Calculator.svg?style=flat-square
+[contributors-url]: https://github.com/Dandush03/react-capstone/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Dandush03/react-capstone.svg?style=flat-square
+[forks-url]: https://github.com/Dandush03/react-capstone/network/members
+[stars-shield]: https://img.shields.io/github/stars/Dandush03/react-capstone.svg?style=flat-square
+[stars-url]: https://github.com/Dandush03/react-capstone/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Dandush03/react-capstone.svg?style=flat-square
+[issues-url]: https://github.com/Dandush03/react-capstone/issues
+[license-shield]: https://img.shields.io/github/license/Dandush03/react-capstone.svg?style=flat-square
+[license-url]: https://github.com/Dandush03/react-capstone/blob/master/LICENSE.txt
+[linkedin-shield2]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url2]: https://www.linkedin.com/in/daniel-laloush/
+[hireable]: https://cdn.rawgit.com/hiendv/hireable/master/styles/flat/yes.svg
+[hireable-url]: https://www.linkedin.com/in/daniel-laloush/
