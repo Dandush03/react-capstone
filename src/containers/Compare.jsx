@@ -8,7 +8,7 @@ import Header from './Header';
 export default class Compare extends Component {
   componentDidMount() {
     const title = document.title.split('|');
-    document.title = `${title[0]} | Home`;
+    document.title = `${title[0]} | Compare`;
 
     const menu = document.getElementsByTagName('menu')[0];
     const li = menu.getElementsByTagName('li')[1];
