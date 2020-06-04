@@ -41,7 +41,7 @@ function loadCompanyChart(firstCompany, secondCompany) {
       .then(json => {
         first = json;
       })
-      .then(e => {
+      .then(() => {
         fetch(fetchUrl(secondCompany))
           .then(response => response.json())
           .then(json => {

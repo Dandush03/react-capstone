@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import storeConfig from './store';
 
 import Home from './containers/Home';
+import Compare from './containers/Compare';
 
 import './stylesheets/index.scss';
 
@@ -17,7 +18,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/" render={() => <Home />} />
-        <Route path="/hello" render={() => ('heelo')} />
+        <Route path="/compare" render={() => <Compare />} />
       </Switch>
     </BrowserRouter>
   </Provider>,

@@ -38,6 +38,7 @@ class Chart extends Component {
       title: {
         text: 'Comparation between two Assets',
       },
+      backgroundColor: 'transparent',
       axisX: {
         interval: 1,
         valueFormatString: 'D MMM YYYY HH:mm:ss',
@@ -74,7 +75,7 @@ class Chart extends Component {
       ],
     };
     return (
-      <div>
+      <div className="chart">
         <CanvasJSChart options={options} onRef={ref => { this.chart = ref; }} />
       </div>
     );

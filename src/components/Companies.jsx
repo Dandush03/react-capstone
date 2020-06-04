@@ -29,8 +29,16 @@ class Companies extends Component {
     const companiesList = companies.map(company => <option key={`company-${company.symbol}`} value={company.symbol}>{company.name}</option>);
     return (
       <div className="companies-selection">
-        <select name="first" onChange={e => this.handleChange(e)}>{companiesList}</select>
-        <select name="second" onChange={e => this.handleChange(e)}>{companiesList}</select>
+        <div className="selection">
+          <select name="first" onChange={e => this.handleChange(e)}>
+            <option>Select Company</option>
+            {companiesList}
+          </select>
+          <select name="second" onChange={e => this.handleChange(e)}>
+            <option>Select Company</option>
+            {companiesList}
+          </select>
+        </div>
         <button type="button" onClick={() => this.handleLoadChart()}>Compare</button>
       </div>
     );
