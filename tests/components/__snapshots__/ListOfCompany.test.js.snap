@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components ListOfCompany Should match to Snapshot 1`] = `
+<div
+  className="companies"
+>
+  <button
+    className="company-list"
+    onClick={[Function]}
+    type="button"
+  >
+    <h1 />
+    <span>
+      (undefined)
+    </span>
+  </button>
+</div>
+`;

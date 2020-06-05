@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Chart from '../components/Chart';
-import Companies from '../components/Selector';
+import Selector from '../components/Selector';
 import Title from '../components/Title';
 import Header from './Header';
 
@@ -20,7 +20,7 @@ export default class Compare extends Component {
       <div className="wrapper">
         <Header />
         <Title />
-        <Companies />
+        <Selector />
         <Chart />
       </div>
     );

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { getCompaniesArray, loadCompanyChart, selector } from '../actions/fetchCompanies';
 
-class Companies extends Component {
+class Selector extends Component {
   componentDidMount() {
     const { props: { getCompaniesArray } } = this;
     getCompaniesArray();
@@ -49,7 +49,7 @@ class Companies extends Component {
   }
 }
 
-Companies.propTypes = {
+Selector.propTypes = {
   getCompaniesArray: PropTypes.func.isRequired,
   loadCompanyChart: PropTypes.func.isRequired,
   selector: PropTypes.func.isRequired,
@@ -64,4 +64,4 @@ const structeredSelector = createStructuredSelector({
 
 const mapDispatchToProps = { getCompaniesArray, loadCompanyChart, selector };
 
-export default connect(structeredSelector, mapDispatchToProps)(Companies);
+export default connect(structeredSelector, mapDispatchToProps)(Selector);
