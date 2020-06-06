@@ -9,7 +9,14 @@ function getCompaniesSuccess(json) {
   };
 }
 
-function loadCompanySeccess(firstCompany, secondCompany) {
+function getCompaniesDetailsSuccess(json) {
+  return {
+    type: ActionTypes.GET_COMPANIES_DETAILS_SUCCESS,
+    payload: json,
+  };
+}
+
+function loadCompanySuccess(firstCompany, secondCompany) {
   return {
     type: ActionTypes.LOAD_COMPANIES_DATA,
     payload: {
@@ -25,8 +32,9 @@ function getCompaniesArray() {
     dispatch({ type: ActionTypes.GET_COMPANIES_REQUEST });
     return fetch(fetchUrl)
       .then(response => response.json())
-      .then(json => dispatch(getCompaniesSuccess(json)));
+      .then(json => dispatch(getCompaniesSuccess(json)))
     // eslint-disable-next-line no-console
+      .catch(error => console.log(error));
   };
 }
 
@@ -47,7 +55,7 @@ function loadCompanyChart(firstCompany, secondCompany) {
           .then(json => {
             second = json;
           })
-          .then(() => dispatch(loadCompanySeccess(first, second)))
+          .then(() => dispatch(loadCompanySuccess(first, second)))
           // eslint-disable-next-line no-console
           .catch(error => console.log(error));
       })
@@ -63,4 +71,20 @@ function selector(company, position) {
   };
 }
 
-export { getCompaniesArray, loadCompanyChart, selector };
+
+function getDetails(company) {
+  const fetchUrl = `https://financialmodelingprep.com/api/v3/profile/${company}?apikey=e4d3e8c9dea47067b790bcb8fc95ec61`;
+
+  return dispatch => {
+    dispatch({ type: ActionTypes.GET_COMPANY_DETAILS });
+    return fetch(fetchUrl)
+      .then(response => response.json())
+      .then(json => dispatch(getCompaniesDetailsSuccess(json)))
+    // eslint-disable-next-line no-console
+      .catch(error => console.log(error));
+  };
+}
+
+export {
+  getCompaniesArray, loadCompanyChart, selector, getDetails,
+};

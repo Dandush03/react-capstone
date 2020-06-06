@@ -7,6 +7,7 @@ import storeConfig from './store';
 
 import Home from './containers/Home';
 import Compare from './containers/Compare';
+import CompanyDetails from './containers/Company';
 
 import './stylesheets/index.scss';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route path="/compare" render={() => <Compare />} />
+        <Route path="/company/:symbol" render={props => <CompanyDetails symbol={props.match.params.symbol} />} />
       </Switch>
     </BrowserRouter>
   </Provider>,

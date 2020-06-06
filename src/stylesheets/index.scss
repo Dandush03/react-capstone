@@ -332,6 +332,13 @@ header {
     flex-direction: column;
     justify-content: center;
 
+
+  }
+
+  .btns {
+    display: flex;
+    justify-content: center;
+
     >button {
       align-self: center;
       background-color: $company-n-3;
@@ -341,8 +348,8 @@ header {
       font-size: large;
       font-weight: bolder;
       margin: 10px;
-      padding: 15px;
-      width: 200px;
+      padding: 7.5px 15px;
+      width: auto;
     }
   }
 
@@ -393,5 +400,72 @@ header {
   h1 {
     font-size: xx-large;
     padding: 20px;
+  }
+}
+
+.info-svg {
+  width: 35px;
+}
+
+.details {
+  margin-top: 7.5vh;
+
+  >div {
+    padding: 0 30px;
+    width: 100%;
+
+    &:last-child {
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+    }
+  }
+
+  .title {
+    flex-direction: column;
+    height: auto;
+    padding-top: 20px;
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  .index {
+    color: $font-color;
+    font-size: small;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    span {
+      font-size: small;
+    }
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  .capital {
+    margin: 20px 0;
+  }
+
+  a {
+    align-self: baseline;
+    background-color: $li-hover-bg;
+    border-radius: 5px;
+    color: $font-color * .5;
+    margin: 20px auto;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
   }
 }

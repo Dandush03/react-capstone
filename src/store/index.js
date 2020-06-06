@@ -24,6 +24,7 @@ const initState = {
     show: false,
     data: {},
   },
+  details: [],
 };
 
 export default function configureStore() {

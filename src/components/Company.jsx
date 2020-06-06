@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 
+
 import { handleClosePopUp } from '../actions/popUp';
 
 class Company extends Component {
   constructor(props) {
     super(props);
     this.togglePopup = this.togglePopup.bind(this);
+    this.handleRedirection = this.handleRedirection.bind(this);
   }
 
 
@@ -17,8 +19,14 @@ class Company extends Component {
     handleClosePopUp();
   }
 
+  handleRedirection() {
+    const { props: { popUp: { data } } } = this;
+    const newUrl = `/company/${data.symbol}`;
+    window.location.href = newUrl;
+  }
+
   render() {
-    const { props: { popUp: { data } }, togglePopup } = this;
+    const { props: { popUp: { data } }, togglePopup, handleRedirection } = this;
     return (
       <div className="company-popup">
         <div>
@@ -46,7 +54,10 @@ class Company extends Component {
               </div>
             </div>
           </div>
-          <button type="button" onClick={() => togglePopup()}>OK!</button>
+          <div className="btns">
+            <button type="button" onClick={() => togglePopup()}>OK!</button>
+            <button type="button" onClick={() => handleRedirection()}>MORE INFO</button>
+          </div>
         </div>
       </div>
     );

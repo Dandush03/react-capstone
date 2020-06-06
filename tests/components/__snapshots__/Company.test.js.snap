@@ -48,12 +48,22 @@ exports[`components Company Should match to Snapshot 1`] = `
         </div>
       </div>
     </div>
-    <button
-      onClick={[Function]}
-      type="button"
+    <div
+      className="btns"
     >
-      OK!
-    </button>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        OK!
+      </button>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        MORE INFO
+      </button>
+    </div>
   </div>
 </div>
 `;
