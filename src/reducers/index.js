@@ -5,6 +5,7 @@ import SelectorReducer from './selector';
 import LoadDataReducer from './loadData';
 import PopUpReducer from './popUp';
 import DetailsReducer from './details';
+import FilterReducer from './filter';
 
 export default combineReducers({
   companies: CompanyReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   loadData: LoadDataReducer,
   popUp: PopUpReducer,
   details: DetailsReducer,
+  filter: FilterReducer,
 });

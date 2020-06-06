@@ -25,6 +25,7 @@ const initState = {
     data: {},
   },
   details: [],
+  filter: 'all',
 };
 
 export default function configureStore() {

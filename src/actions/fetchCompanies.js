@@ -16,6 +16,13 @@ function getCompaniesDetailsSuccess(json) {
   };
 }
 
+function filterCompanies(name) {
+  return {
+    type: ActionTypes.FILTER_COMPANIES,
+    payload: name,
+  };
+}
+
 function loadCompanySuccess(firstCompany, secondCompany) {
   return {
     type: ActionTypes.LOAD_COMPANIES_DATA,
@@ -86,5 +93,5 @@ function getDetails(company) {
 }
 
 export {
-  getCompaniesArray, loadCompanyChart, selector, getDetails,
+  getCompaniesArray, loadCompanyChart, selector, getDetails, filterCompanies,
 };

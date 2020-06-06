@@ -469,3 +469,25 @@ header {
     text-transform: uppercase;
   }
 }
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+
+  >button {
+    background-color: transparent;
+    border: 0;
+    color: $font-color;
+    cursor: pointer;
+    font-weight: bolder;
+    padding: 5px;
+    text-transform: uppercase;
+  }
+
+  .active {
+    background-color: $li-hover-bg;
+    border: 1px solid $font-color;
+  }
+}
