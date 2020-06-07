@@ -32,7 +32,7 @@ class Companies extends Component {
     if (filter === 'all') {
       showCompanies = companies;
     } else {
-      showCompanies = companies.filter(c => c.name.split('').shift().toLowerCase() === filter);
+      showCompanies = companies.filter(c => (c.name && c.name.split('').shift().toLowerCase() === filter));
     }
     const companiesList = showCompanies.map(company => (
       <button type="button" key={`company-${company.symbol}`} className="company-list" onClick={() => togglePopup(company)}>
