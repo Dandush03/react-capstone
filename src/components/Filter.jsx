@@ -4,7 +4,6 @@ import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 
 import { filterCompanies } from '../actions/fetchCompanies';
-import CompanyDetails from './CompanyDetails';
 
 class Filter extends Component {
   constructor(props) {

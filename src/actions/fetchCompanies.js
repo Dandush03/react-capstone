@@ -34,7 +34,7 @@ function loadCompanySuccess(firstCompany, secondCompany) {
 }
 
 function getCompaniesArray() {
-  const fetchUrl = 'https://financialmodelingprep.com/api/v3/search?query=AA&limit=9999&exchange=NASDAQ&apikey=f77aedeb0cec6589f076488f2108d793';
+  const fetchUrl = 'https://financialmodelingprep.com/api/v3/search?query=AA&limit=9999&exchange=NASDAQ&apikey=ddb056dfeecb93aaa20254b2abff4887';
   return dispatch => {
     dispatch({ type: ActionTypes.GET_COMPANIES_REQUEST });
     return fetch(fetchUrl)
@@ -46,25 +46,19 @@ function getCompaniesArray() {
 }
 
 function loadCompanyChart(firstCompany, secondCompany) {
-  let first;
-  let second;
-  const fetchUrl = e => `https://financialmodelingprep.com/api/v3/historical-price-full/${e}?apikey=f77aedeb0cec6589f076488f2108d793`;
+  const fetchUrl = e => `https://financialmodelingprep.com/api/v3/historical-price-full/${e}?apikey=ddb056dfeecb93aaa20254b2abff4887`;
   return dispatch => {
     dispatch({ type: ActionTypes.LOAD_COMPANY_REQUEST });
-    return fetch(fetchUrl(firstCompany))
-      .then(response => response.json())
-      .then(json => {
-        first = json;
+    Promise.all([fetch(fetchUrl(firstCompany)), fetch(fetchUrl(secondCompany))])
+      .then(async ([firstResponse, secondResponse]) => {
+        const first = await firstResponse.json();
+        const second = await secondResponse.json();
+        return [first, second];
       })
-      .then(() => {
-        fetch(fetchUrl(secondCompany))
-          .then(response => response.json())
-          .then(json => {
-            second = json;
-          })
-          .then(() => dispatch(loadCompanySuccess(first, second)))
-          // eslint-disable-next-line no-console
-          .catch(error => console.log(error));
+      .then(async ([firstJson, secondJson]) => {
+        const first = await firstJson;
+        const second = await secondJson;
+        return dispatch(loadCompanySuccess(first, second));
       })
       // eslint-disable-next-line no-console
       .catch(error => console.log(error));
