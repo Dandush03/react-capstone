@@ -56,7 +56,7 @@ exports[`Menu Render Elements 1`] = `
         href="/"
       >
         <span>
-          Home
+          Company
         </span>
         <svg
           aria-hidden="true"

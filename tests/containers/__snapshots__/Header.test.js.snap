@@ -118,7 +118,7 @@ exports[`components Header Should match to Snapshot 1`] = `
           href="/"
         >
           <span>
-            Home
+            Company
           </span>
           <svg
             aria-hidden="true"
