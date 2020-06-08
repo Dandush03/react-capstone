@@ -1,8 +1,8 @@
 import React from 'react';
 
-import BarButton from '../components/BarButton';
-import Media from '../components/Media';
-import Menu from '../components/Menu';
+import BarButton from './BarButton';
+import Media from './Media';
+import Menu from './Menu';
 
 export default function Header() {
   return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './Header';
-import ListOfCompany from '../components/ListOfCompany';
+import ListOfCompany from '../containers/ListOfCompany';
 
 export default class Compare extends Component {
   componentDidMount() {

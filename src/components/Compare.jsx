@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Chart from '../components/Chart';
-import Selector from '../components/Selector';
-import Title from '../components/Title';
+import Chart from '../containers/Chart';
+import Selector from '../containers/Selector';
+import Title from './Title';
 import Header from './Header';
 
 export default class Compare extends Component {

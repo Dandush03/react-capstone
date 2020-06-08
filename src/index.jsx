@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom';
 
 import storeConfig from './store';
 
-import Home from './containers/Home';
-import Compare from './containers/Compare';
-import CompanyDetails from './containers/Company';
+import Home from './components/Home';
+import Compare from './components/Compare';
+import CompanyDetails from './components/Company';
 
 import './stylesheets/index.scss';
 
