@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Header from '../components/Header';
+import Header from './Header';
 import Details from '../containers/Details';
 
 export default class CompanyDetails extends Component {
