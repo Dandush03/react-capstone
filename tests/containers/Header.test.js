@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import { Provider } from 'react-redux';
 import storeConfig from '../../src/store';
-import Header from '../../src/containers/Header';
+import Header from '../../src/components/Header';
 
 
 const store = storeConfig();

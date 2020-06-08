@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 
 import storeConfig from '../../src/store';
-import ListOfCompany from '../../src/components/ListOfCompany';
+import ListOfCompany from '../../src/containers/ListOfCompany';
 
 
 const store = storeConfig();

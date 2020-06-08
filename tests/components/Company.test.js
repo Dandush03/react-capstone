@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import storeConfig from '../../src/store';
-import Company from '../../src/components/Company';
+import Company from '../../src/containers/Company';
 
 
 const store = storeConfig();
