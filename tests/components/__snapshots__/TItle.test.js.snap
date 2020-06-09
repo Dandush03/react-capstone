@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title Render Elements 1`] = `
+<div
+  className="title"
+>
+  <h1>
+    Assets Comparations
+  </h1>
+</div>
+`;
