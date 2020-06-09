@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components Company Should match to Snapshot 1`] = `
+<div
+  className="company-popup"
+>
+  <div>
+    <div
+      className="header-popup"
+    >
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        X
+      </button>
+    </div>
+    <div
+      className="data-popup"
+    >
+      <h1 />
+      <div
+        className="info"
+      >
+        <div>
+          <p>
+            currency
+          </p>
+          <h4 />
+        </div>
+        <div>
+          <p>
+            exchange Name
+          </p>
+          <h4 />
+        </div>
+        <div>
+          <p>
+            stock Exchange
+          </p>
+          <h4 />
+        </div>
+        <div>
+          <p>
+            Symbol
+          </p>
+          <h4 />
+        </div>
+      </div>
+    </div>
+    <div
+      className="btns"
+    >
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        OK!
+      </button>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        MORE INFO
+      </button>
+    </div>
+  </div>
+</div>
+`;
