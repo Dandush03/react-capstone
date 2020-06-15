@@ -9,7 +9,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
- <h2 align="center"> Bookstore with React </h2>
+ <h2 align="center"> Compare Chart with React, Redux and Canvas </h2>
 
   <p align="center">
     <br />
